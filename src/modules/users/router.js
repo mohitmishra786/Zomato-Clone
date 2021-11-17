@@ -4,3 +4,5 @@ const router = express.Router()
 
 const {getUser} = require("./controller");
 Router.get("/" , getUser);
+
+const userRouter = router;
