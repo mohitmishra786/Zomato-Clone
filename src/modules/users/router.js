@@ -1,8 +1,8 @@
-// const { Router } = require('express')
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const {getUser} = require("./controller");
-Router.get("/" , getUser);
+const { getUser } = require("./controller");
 
-const userRouter = router;
+router.get("/", getUser);
+
+exports.userRouter = router;
