@@ -5,16 +5,17 @@
 // exports.deleteUser = () => { };
 const { create,deleteOne,get,update } = require('../../models/users/index');
 
-exports.create = (req,res) => {
-  const newUser = await User.create(req,body).catch(error => {
+exports.create =  async(req,res) => {
+  const newUser = await User.create(req,body).catch((error) => {
     return res.status(409).send({
       success: false,
-      message : "unable to save user",
-    })
+      message: "unable to save user",
+    });
   });
-  res.statu(200).send({
+
+  res.status(200).send({
     success:true,
     data: newUser,
     message: "Successfully saved the user",
-  })
+  });
 };
