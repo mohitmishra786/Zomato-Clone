@@ -3,8 +3,8 @@
 // };
 
 // exports.deleteUser = () => { };
-const { create,deleteOne,get,update } = require('../../models/users/index')
+const { create,deleteOne,get,update } = require('../../models/users/index');
 
 exports.create = (req,res) => {
 
-}
+};
