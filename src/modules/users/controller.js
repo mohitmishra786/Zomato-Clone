@@ -6,5 +6,5 @@
 const { create,deleteOne,get,update } = require('../../models/users/index');
 
 exports.create = (req,res) => {
-
+  const newUser = await User.create(req,body);
 };
