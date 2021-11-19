@@ -15,6 +15,6 @@ const UsserSchema = new Schema({
     role: {type: String,required: true},
     orders: [String],
     restaurant:  {type : String},
-    status: {type: Boolean,required: true},
+    status: {type: Boolean,default: true,required: true},
 });
 module.exports = mongoose.model('User' , UsserSchema);
