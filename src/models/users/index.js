@@ -1,3 +1,9 @@
-const User = require('./schema')
+const User = require('./schema');
 
-const create
+exports.get = () => User.find();
+
+exports.create = () => User.create();
+
+exports.update = () => User.updateOne();
+
+exports.delete = () => User.deleteOne();
