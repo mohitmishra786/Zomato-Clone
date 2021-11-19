@@ -1,7 +1,7 @@
 const User = require('./schema');
 
 
-exports.create = () => User.create();
+exports.create = (body) => User.create(body);
 exports.get = () => User.find();
 exports.update = () => User.updateOne();
 exports.delete = () => User.deleteOne();
