@@ -17,4 +17,4 @@ const UsserSchema = new Schema({
     restaurant:  {type : String}
     status: {type: Boolean},
 });
-module.export = mongoose.model('User' , UsserSchema);
+module.exports = mongoose.model('User' , UsserSchema);
