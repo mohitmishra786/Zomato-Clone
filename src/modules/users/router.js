@@ -1,8 +1,14 @@
+const { isAuthentocated } = require("../../middlewares/auth");
+const { validator } = require("../../middlewares/validator");
+const schema = require("./validator");
+
 const express = require("express");
 const router = express.Router();
 
-const { getUser } = require("./controller");
+const controller = require("./controller");
 
-router.get("/", (getUser) => {});
+router.post("/signup", validator(schema.signup), controller.signup);
 
-exports.userRouter = router;
+router.post("/login", validator(schema.login), controller.login);
+
+module.exports = router;
