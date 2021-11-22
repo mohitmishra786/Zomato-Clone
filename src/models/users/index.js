@@ -1,10 +1,8 @@
-const User = require('./schema');
-
+const User = require("./shcema");
 
 exports.create = (body) => User.create(body);
-exports.get = () => User.find();
-exports.update = () => User.updateOne();
-exports.deleteOne = () => User.deleteOne();
 
+exports.getByPhone = (phone) => User.findOne({ phone }).lean();
 
-
+exports.update = (query, data) =>
+  User.updateOne({ ...query }, { $set: { ...data } });

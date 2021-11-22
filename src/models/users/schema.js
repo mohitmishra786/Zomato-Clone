@@ -1,20 +1,31 @@
-const mongoose = require('mongoose');
+const { ROLE, ROLE_ENUM } = require("./constant");
 
-const {Schema} = mongoose;
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const UsserSchema = new Schema({
-    name: {type: String , required: true},
-    phone: {type: Number, unique: true , minlength:10, maxlength: 13,required: true},
-    email: {type: String , unique: true, lowercase: true,required: true},
-    password: {type: String, minlength: 8, maxlength:16,required: true},
+const UserSchema = new Schema(
+  {
+    name: { type: String, required: true },
+    phone: {
+      type: Number,
+      unique: true,
+      minlength: 10,
+      maxlength: 13,
+      required: true,
+    },
+    email: { type: String, unique: true, lowercase: true },
+    password: { type: String, required: true },
     address: new Schema({
-        name: String,
-        address: String,
-        zip: Number,
+      name: String,
+      address: String,
+      zip: Number,
     }),
-    role: {type: String,required: true},
+    role: { type: Number, default: ROLE.USER, enum: ROLE_ENUM, required: true },
     orders: [String],
-    restaurant:  {type : String},
-    status: {type: Boolean,default: true,required: true},
-});
-module.exports = mongoose.model('User' , UsserSchema);
+    restaurant: { type: Schema.Types.ObjectId, ref: "Restaurant" },
+    status: { type: Boolean, default: true, required: true },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("User", UserSchema);
